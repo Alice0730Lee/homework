@@ -1,0 +1,22 @@
+<script>
+    //*0 <= math.random() < 1;
+    //let score = parseInt(Math.random() * 101);
+    //score = parseInt(score * 30 + 40); //*40-69
+    //score = parseInt(score * 61 - 30);//*-30~30
+    let score = Math.random();
+    score = parseInt(score * 101); //*101代表0-100有幾個
+    document.write(score + "<hr>");
+    if (score >= 90){
+        document.write("A");
+    } else if (score >= 80){
+        document.write("B");
+    } else if(score >= 70){
+        document.write("C");
+    } else if(score >= 60){
+        document.write("D");
+    } else{
+        document.write("E");
+    }
+    
+    document.write("<hr>end")
+</script>
