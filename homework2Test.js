@@ -11,9 +11,10 @@ function creatTWID(){
 
     //area
     if(area == "rand"){
-        area = parseInt(Math.random()*26+10);
-        id[0] = parseInt(area/10);
-        id[1] = parseInt(area%10);
+        creatTWIDByAll(area);
+        // area = parseInt(Math.random()*26+10);
+        // id[0] = parseInt(area/10);
+        // id[1] = parseInt(area%10);
 
     }
     else{
@@ -24,10 +25,12 @@ function creatTWID(){
 
     //gender
     if(gender == "rand"){
-        id[2] = parseInt(Math.random()*2+1);
+        creatTWIDByAll(gender);
+        // id[2] = parseInt(Math.random()*2+1);
     }
     else{
-        id[2] = gender;
+        creatTWIDByGender(gender);
+        // id[2] = gender;
     }
 
     //後7碼0-9亂數
