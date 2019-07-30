@@ -33,12 +33,14 @@ function running(){
         doSlow();
     }
     else if(j > 72 && i == rand){
+        document.getElementById("showbackground").setAttribute('style', 'background-color : #3344');
+        document.getElementById("show").innerHTML = `你得到的是${roll[goline[i]].dataset.value}`;
         clearInterval(timer);
     }
     
 
     if(i >= 24){
-        i = 0;
+        i = 0;s
     }
     //背景色移動順序
      roll[goline[i]].setAttribute('style', 'background-color : red');
