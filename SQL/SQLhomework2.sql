@@ -73,4 +73,20 @@ declare j int DEFAULT 1;
 end $$
 delimiter ;
 
+--transaction
+delimiter $$
+create procedure pro_tRand()
+begin
+    declare max_cid int;
+    declare p_cid int;
+    declare j int DEFAULT 1;
+
+    while j <= 3000 do
+        select max(Cid) from Customer into max_cid;
+        set p_cid = floor(rand()*(max_cid)+1);
+        insert into Transaction (Cid, Tprice) values (p_cid,floor(rand()*500+51));
+        set j = j+1;
+    end while;
+end $$
+delimiter ;
 --
