@@ -1,0 +1,73 @@
+<!-- 二選一
+    1.麻仔台，用canvas或table都可做
+    2.打磚塊，隨機產生一顆磚塊就好
+        動的碰靜的，主要寫在動的身上
+
+-->
+
+<script src="homework3.js"></script>
+
+<style>
+    #button {
+      background-color: rgb(240, 110, 70);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    #show {
+        font-size: 30px;
+        color: rgb(15, 108, 190);
+    }
+</style>
+<table id="table" border="1px" align="center" width = "40%" height = "90%">
+    <tr>
+        <td class="pic" data-value="mango"><img src="mango.png"></td>
+        <td class="pic" data-value="bell"><img src="bell.png"></td>
+        <td class="pic" data-value="BAR50"><img src="bar.png">50</td>
+        <td class="pic" data-value="BAR100"><img src="bar.png">100</td>
+        <td class="pic" data-value="cherries"><img src="cherries.png"></td>
+        <td class="pic" data-value="cherries"><img src="cherries.png"></td>
+        <td class="pic" data-value="lemon"><img src="lemon.png"></td>
+    </tr>
+    <tr>
+        <td class="pic" data-value="bell"><img src="bell.png"></td>
+        <td id="showbackground" colspan="5" rowspan="5">
+            <span id="show"></span>
+        </td>
+        <td class="pic" data-value="watermelon"><img src="watermelon.png"></td>
+    </tr>
+    <tr>
+        <td class="pic"  data-value="cherries"><img src="cherries.png"></td>
+        <td class="pic" data-value="watermelon"><img src="watermelon.png"></td>
+    </tr>
+    <tr>
+        <td class="pic" data-value="one more time"><img src="resatrt.png"></td>
+        <td class="pic" data-value="one more time"><img src="resatrt.png"></td>
+    </tr>
+    <tr>
+        <td class="pic" data-value="stars"><img src="stars.png"></td>
+        <td class="pic"  data-value="cherries"><img src="cherries.png"></td>
+    </tr>
+    <tr>
+        <td class="pic" data-value="stars"><img src="stars.png"></td>
+        <td class="pic" data-value="mango"><img src="mango.png"></td>
+    </tr>
+    <tr>
+        <td class="pic" data-value="lemon"><img src="lemon.png"></td>
+        <td class="pic" data-value="lemon"><img src="lemon.png"></td>
+        <td class="pic" data-value="cherries"><img src="cherries.png"></td>
+        <td class="pic" data-value="777"><img src="seven.png"></td>
+        <td class="pic" data-value="777"><img src="seven.png"></td>
+        <td class="pic" data-value="bell"><img src="bell.png"></td>
+        <td class="pic" data-value="mango"><img src="mango.png"></td>
+    </tr>
+
+</table>
+<input id="button" type="button" onclick="start()" value="start"/>
