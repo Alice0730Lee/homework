@@ -1,5 +1,5 @@
 --創建資料庫
-create database shopdata;
+create database shopdata DEFAULT CHARACTER SET utf8;
 
 --切換資料庫
 use shopdata;
@@ -14,7 +14,7 @@ create table Customer (
 );
 
 -- 把Cname欄位改為utf8碼
-ALTER TABLE `Customer` CHANGE `Cname` `Cname` VARCHAR(40) CHARACTER SET utf8 NOT NULL;
+--ALTER TABLE `Customer` CHANGE `Cname` `Cname` VARCHAR(40) CHARACTER SET utf8 NOT NULL;
 
 -- 創建資料表Transaction
 create table Transaction (
@@ -40,7 +40,7 @@ create table Product(
     Pprice INT NOT NULL,
     PRIMARY KEY (Pid)
 );
-ALTER TABLE `Product` CHANGE `Pname` `Pname` VARCHAR(100) CHARACTER SET utf8 NOT NULL;
+--ALTER TABLE `Product` CHANGE `Pname` `Pname` VARCHAR(100) CHARACTER SET utf8 NOT NULL;
 
 --創建資料表List
 create table List(
@@ -52,7 +52,7 @@ create table List(
     Tid INT NOT NULL,
     PRIMARY KEY (Lid)
 );
-ALTER TABLE `List` CHANGE `Pname` `Pname` VARCHAR(100) CHARACTER SET utf8 NOT NULL;
+--ALTER TABLE `List` CHANGE `Pname` `Pname` VARCHAR(100) CHARACTER SET utf8 NOT NULL;
 
 
 --亂數產資料
