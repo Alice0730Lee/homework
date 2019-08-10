@@ -47,7 +47,7 @@ create table product(
 
 
 delimiter $$
-create procedure pro_Rand()
+create procedure pro_p2Rand()
 begin
     declare name VARCHAR (40) ;
     declare p INT; 
