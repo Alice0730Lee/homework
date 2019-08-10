@@ -56,8 +56,8 @@
                 <?php
                    foreach ($content as $key => $value) {
                         echo "<script><td></script>";
-                        echo 'value='.$value["pName"].'<br>';
-                        echo 'value='.$value["price"].'<br>';
+                        echo 'name='.$value["pName"].'<br>';
+                        echo 'price='.$value["price"].'<br>';
                         echo "<i class='fas fa-cart-plus' style='font-size:36px'></i>";
                         echo "<script></td></script>";
                     }
