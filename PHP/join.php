@@ -9,7 +9,10 @@
         if($_POST["userPassword"] != $_POST["chkPassword"]){
             echo "<script>alert('密碼輸入有誤，請再確認一次!')</script>";
         }
-        if(isset($_POST["name"]) and isset($_POST["tel"]) and isset($_POST["userName"]) and isset($_POST["userPassword"]) and isset($_POST["chkPassword"])){
+        if(isset($_POST["name"]) == "" or isset($_POST["tel"]) == "" or isset($_POST["userName"]) == "" or isset($_POST["userPassword"]) == "" or isset($_POST["chkPassword"]) != ""){
+            echo "<script>alert('欄位不得為空!')</script>";
+        }
+        else{
             $_SESSION["join"] = true;
             $joinIf = [$_POST['name'],$_POST['tel'],$_POST['userName'],$_POST['userPassword']];
             $sqlIndertCommamd=
@@ -17,9 +20,6 @@
                 ('$joinIf[0]','$joinIf[1]','$joinIf[2]','$joinIf[3]')";
                 mysqli_query($link, $sqlIndertCommamd);
             header("Location: login.php");
-        }
-        else{
-            echo "<script>alert('欄位不得為空!')</script>";
         }
     }
 ?>
