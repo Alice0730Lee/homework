@@ -13,9 +13,21 @@
         $content[] = $row;
         $row = mysqli_fetch_assoc($result);
     }
+    if(isset($_SESSION["uName"])){
+        $logIO = "登出會員";
+    }
+    else if(!isset($_SESSION["uName"])){
+        $logIO = "登入會員";
+    }
 
-    if(isset($_POST["btnLogin"])){
+    if(isset($_POST["btnLogIO"])){
+        if(isset($_SESSION["uName"])){
+            unset($_SESSION["uName"]);
+            $logIO = "登入會員";
+        }
+        else{
         header("Location: login.php");
+        }
     }
     if(isset($_POST["btnCart"])){
         var_dump($_POST);
@@ -57,7 +69,7 @@
     <div align="right">
         
             <input type = "submit" name = "btnCart" value = "查看購物車"/>
-            <input type = "submit" name = "btnLogin" value = "登入會員"/>
+            <input type = "submit" name = "btnLogIO" value = "<?=$logIO?>"/>
     </div>
     <div align="center">
             <table>

@@ -17,7 +17,7 @@
         $rowChk = mysqli_fetch_assoc($resultChk);
         if($rowChk){
             $_SESSION["uName"] = $_POST["userName"];
-            header("Location: member.php");
+            header("Location: index.php");
         }
         else{
             echo "<script>alert('帳號密碼有誤!')</script>";

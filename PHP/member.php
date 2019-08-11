@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_POST["btnlogout"])){
-    unset($SESSION["uName"]);
+    unset($_SESSION["uName"]);
     header("Location: index.php");
 }
 ?>
