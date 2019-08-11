@@ -13,6 +13,8 @@
         $content[] = $row;
         $row = mysqli_fetch_assoc($result);
     }
+    // var_dump($content);
+    // exit();
     if(isset($_SESSION["uName"])){
         $logIO = "登出會員";
     }
@@ -57,8 +59,8 @@
     </style>
     <script>
         function add(){
-            let add = document.getElementsByClassName("add");
-            console.log(add);
+            let add = document.getElementsByTagName("input");
+            console.log(add.id);
             alert("已加入購物車");
         }
     </script>
@@ -80,9 +82,9 @@
                    foreach ($content as $key => $value) {
                         echo "<td>";
                         echo '<h2>'.$value["pName"].'</h2><br>';
-                        // echo "<img src='/;charset=utf-8;base64,".$value['pImg']."' />";
+                        echo "<img src='data:image/png;base64,".base64_encode($value['pImg'])."' />";
                         echo '<h3>$'.$value["price"].'</h3><br>';
-                        echo "<input class='add' type='button' name='".$value["id"]."' onclick='add()' value='加入購物車'>";
+                        echo "<input class='add' type='button' id='".$value["id"]."' onclick='add()' value='加入購物車'>";
                         // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
                         echo "</td>";
                     }
