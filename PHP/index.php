@@ -79,7 +79,7 @@
             <table>
                 <tr>
                 <?php
-                   foreach ($content as $key => $value) {}
+                   foreach ($content as $key => $value) {
                         echo "<td>";
                         echo '<h2>'.$value["pName"].'</h2><br>';
                         echo "<img src='data:image/png;base64,".base64_encode($value['pImg'])."' />";
