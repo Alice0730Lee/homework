@@ -5,7 +5,7 @@
     mysqli_select_db($link, $dbname);
     $sqlCommand = "select * from product";//列出資料表內的所有資料
     $result = mysqli_query($link,$sqlCommand);
-    $content = [];//用陣列存取
+    $content = $pid = [];//用陣列存取
     $row = mysqli_fetch_assoc($result);
 
     //直到$row沒有值
@@ -33,7 +33,7 @@
     }
     if(isset($_POST["btnCart"])){
         
-        var_dump($_POST);
+        var_dump($id);
     }
 ?>
 
@@ -58,9 +58,9 @@
         }
     </style>
     <script>
-        function add(){
-            let add = document.getElementsByTagName("input");
-            console.log(add.id);
+        //存抓到的id
+        function add(id){
+            console.log(id);
             alert("已加入購物車");
         }
     </script>
@@ -79,12 +79,12 @@
             <table>
                 <tr>
                 <?php
-                   foreach ($content as $key => $value) {
+                   foreach ($content as $key => $value) {}
                         echo "<td>";
                         echo '<h2>'.$value["pName"].'</h2><br>';
                         echo "<img src='data:image/png;base64,".base64_encode($value['pImg'])."' />";
                         echo '<h3>$'.$value["price"].'</h3><br>';
-                        echo "<input class='add' type='button' id='".$value["id"]."' onclick='add()' value='加入購物車'>";
+                        echo "<input class='add' type='button' onclick='add(".$value["id"].")' value='加入購物車'>";
                         // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
                         echo "</td>";
                     }
