@@ -14,8 +14,6 @@
         $row = mysqli_fetch_assoc($result);
     }
     $_SESSION["shopCart"] = $content;
-    // var_dump($content);
-    // exit();
     if(isset($_SESSION["uName"])){
         $logIO = "登出會員";
     }
@@ -32,10 +30,12 @@
         header("Location: login.php");
         }
     }
-    // if(isset($_POST["btnAdd"])){
-    //     $pid[] = $id;
-    //     // var_dump($pid);
-    // }
+    if(isset($_POST["btnAdd"])){
+        $_SESSION["shopcart"][] = $_POST['id'];
+    }
+    if(isset($_POST["btnCart"])){
+        header("Location: shopCart.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +74,7 @@
                 <tr>
                 <?php
                    foreach ($content as $key => $value) {
-                        echo "<td><form method='post' action='add.php'>";
+                        echo "<td><form method='post' action=''>";
                         echo '<h2>'.$value["pName"].'</h2><br>';
                         echo "<img src='data:image/png;base64,".base64_encode($value['pImg'])."' />";
                         echo '<h3>$'.$value["price"].'</h3><br>';
