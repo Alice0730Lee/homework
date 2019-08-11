@@ -5,7 +5,7 @@
     mysqli_select_db($link, $dbname);
     $sqlCommand = "select * from product";//列出資料表內的所有資料
     $result = mysqli_query($link,$sqlCommand);
-    $content = $pid = [];//用陣列存取
+    $content = [];//用陣列存取
     $row = mysqli_fetch_assoc($result);
 
     //直到$row沒有值
