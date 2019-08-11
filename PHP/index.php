@@ -30,6 +30,7 @@
         }
     }
     if(isset($_POST["btnCart"])){
+        
         var_dump($_POST);
     }
 ?>
@@ -56,7 +57,8 @@
     </style>
     <script>
         function add(){
-            let add = document.getElementsbyName();
+            let add = document.getElementsByClassName("add");
+            console.log(add);
             alert("已加入購物車");
         }
     </script>
@@ -80,7 +82,7 @@
                         echo '<h2>'.$value["pName"].'</h2><br>';
                         // echo "<img src='/;charset=utf-8;base64,".$value['pImg']."' />";
                         echo '<h3>$'.$value["price"].'</h3><br>';
-                        echo "<input type='button' name='".$value["id"]."' onclick='add()' value='加入購物車'>";
+                        echo "<input class='add' type='button' name='".$value["id"]."' onclick='add()' value='加入購物車'>";
                         // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
                         echo "</td>";
                     }
