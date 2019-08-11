@@ -17,6 +17,9 @@
     if(isset($_POST["btnLogin"])){
         header("Location: login.php");
     }
+    if(isset($_POST["btnCart"])){
+        var_dump($_POST);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -39,18 +42,24 @@
             border: 1px solid black;
         }
     </style>
+    <script>
+        function add(){
+            let add = document.getElementsbyName();
+            alert("已加入購物車");
+        }
+    </script>
 </head>
 <body>
     <div align="center">
         <h1>CY SHOP</h1>
     </div>
+    <form method="post" action="">
     <div align="right">
-        <form method="post" action="">
+        
+            <input type = "submit" name = "btnCart" value = "查看購物車"/>
             <input type = "submit" name = "btnLogin" value = "登入會員"/>
-        </form>
     </div>
     <div align="center">
-        <form method="post" action="">
             <table>
                 <tr>
                 <?php
@@ -59,7 +68,7 @@
                         echo '<h2>'.$value["pName"].'</h2><br>';
                         // echo "<img src='/;charset=utf-8;base64,".$value['pImg']."' />";
                         echo '<h3>$'.$value["price"].'</h3><br>';
-                        echo "<input type='submit' name='".$value["id"]."' value='加入購物車'>";
+                        echo "<input type='button' name='".$value["id"]."' onclick='add()' value='加入購物車'>";
                         // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
                         echo "</td>";
                     }
