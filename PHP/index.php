@@ -3,16 +3,16 @@
     session_start();
     $link = mysqli_connect($dbhost, $dbuser,$dbpass) or die("Unable to connect to SQL server");
     mysqli_select_db($link, $dbname);
-    $sqlCommand = "select * from product";
+    $sqlCommand = "select * from product";//列出資料表內的所有資料
     $result = mysqli_query($link,$sqlCommand);
-    $content = [];
+    $content = [];//用陣列存取
     $row = mysqli_fetch_assoc($result);
+
+    //直到$row沒有值
     while(isset($row) != ""){
         $content[] = $row;
         $row = mysqli_fetch_assoc($result);
     }
-    // var_dump($content);
-    // exit();
 
     if(isset($_POST["btnLogin"])){
         header("Location: login.php");
@@ -57,9 +57,10 @@
                    foreach ($content as $key => $value) {
                         echo "<td>";
                         echo 'name='.$value["pName"].'<br>';
-                        echo "<img src='/".$row['pImg']."' />";
+                        // echo "<img src='/;charset=utf-8;base64,".$value['pImg']."' />";
                         echo 'price='.$value["price"].'<br>';
-                        echo "<i class='fas fa-cart-plus' style='font-size:36px'></i>";
+                        echo "<input type='submit' name='".$value["id"]."' value='加入購物車'>";
+                        // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
                         echo "</td>";
                     }
                 ?>
