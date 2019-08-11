@@ -55,11 +55,12 @@
                 <tr>
                 <?php
                    foreach ($content as $key => $value) {
-                        echo "<script><td></script>";
+                        echo "<td>";
                         echo 'name='.$value["pName"].'<br>';
+                        echo "<img src='/".$row['pImg']."' />";
                         echo 'price='.$value["price"].'<br>';
                         echo "<i class='fas fa-cart-plus' style='font-size:36px'></i>";
-                        echo "<script></td></script>";
+                        echo "</td>";
                     }
                 ?>
                 </tr>
