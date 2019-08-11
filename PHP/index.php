@@ -56,9 +56,9 @@
                 <?php
                    foreach ($content as $key => $value) {
                         echo "<td>";
-                        echo 'name='.$value["pName"].'<br>';
+                        echo '<h2>'.$value["pName"].'</h2><br>';
                         // echo "<img src='/;charset=utf-8;base64,".$value['pImg']."' />";
-                        echo 'price='.$value["price"].'<br>';
+                        echo '<h3>$'.$value["price"].'</h3><br>';
                         echo "<input type='submit' name='".$value["id"]."' value='加入購物車'>";
                         // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
                         echo "</td>";
