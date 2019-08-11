@@ -13,6 +13,7 @@
         $content[] = $row;
         $row = mysqli_fetch_assoc($result);
     }
+    $_SESSION["shopCart"] = $content;
     // var_dump($content);
     // exit();
     if(isset($_SESSION["uName"])){
@@ -31,10 +32,10 @@
         header("Location: login.php");
         }
     }
-    if(isset($_POST["btnCart"])){
-        
-        var_dump($id);
-    }
+    // if(isset($_POST["btnAdd"])){
+    //     $pid[] = $id;
+    //     // var_dump($pid);
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -57,41 +58,34 @@
             border: 1px solid black;
         }
     </style>
-    <script>
-        //存抓到的id
-        function add(id){
-            console.log(id);
-            alert("已加入購物車");
-        }
-    </script>
 </head>
 <body>
     <div align="center">
         <h1>CY SHOP</h1>
     </div>
-    <form method="post" action="">
     <div align="right">
-        
+        <form method="post" action="">
             <input type = "submit" name = "btnCart" value = "查看購物車"/>
             <input type = "submit" name = "btnLogIO" value = "<?=$logIO?>"/>
+        </form>
     </div>
     <div align="center">
             <table>
                 <tr>
                 <?php
                    foreach ($content as $key => $value) {
-                        echo "<td>";
+                        echo "<td><form method='post' action='add.php'>";
                         echo '<h2>'.$value["pName"].'</h2><br>';
                         echo "<img src='data:image/png;base64,".base64_encode($value['pImg'])."' />";
                         echo '<h3>$'.$value["price"].'</h3><br>';
-                        echo "<input class='add' type='button' onclick='add(".$value["id"].")' value='加入購物車'>";
-                        // echo "<a type='submit' name=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
-                        echo "</td>";
+                        echo "<input type='text' name='id' value='".$value["id"]."' style='display:none'>";
+                        echo "<input type='submit' name='btnAdd' value='加入購物車'>";
+                        // echo "<a type='submit' value=".$value["id"]."><i class='fas fa-cart-plus' style='font-size:36px'></i></a>";
+                        echo "</form></td>";
                     }
                 ?>
                 </tr>
             </table>
-        </form>
     </div>
 </body>
 </html>
